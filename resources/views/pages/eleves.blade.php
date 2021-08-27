@@ -16,9 +16,10 @@
         </tr>
     </thead>
 
+    <tbody>
 @foreach ($data as $value)
 
-    <tbody>
+    
         <tr>
             <th scope="row">{{$value->id}} </th>
                 <td>{{$value->nom}}</td>
@@ -26,15 +27,16 @@
                 <td>{{$value->age}}</td>
                 <td>{{$value->etat}}</td>
                 <td>
-                    <a href="" class="btn btn-info">SHOW</a>
+                    <a href="{{route('show4', $value->id)}} " class="btn btn-info">SHOW</a>
                 </td>
         </tr>
+
+
+@endforeach
     </tbody>
 </table>
 
 
-@endforeach
-
-<a href="" class="btn btn-secondary">Create New Element</a>
+<a href="/create4" class="btn btn-secondary">Create New Element</a>
 
 @endsection

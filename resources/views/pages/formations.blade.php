@@ -14,23 +14,31 @@
         </tr>
     </thead>
 
+    <tbody>
+
 @foreach ($data as $value)
 
-    <tbody>
+    
         <tr>
             <th scope="row">{{$value->id}} </th>
                 <td>{{$value->nom}}</td>
                 <td>{{$value->description}}</td>
                 <td>
-                    <a href="" class="btn btn-info">SHOW</a>
+                    <a href="{{route('show2', $value->id)}} " class="btn btn-info">SHOW</a>
+
                 </td>
         </tr>
+
+@endforeach
+
+
     </tbody>
 </table>
 
 
-@endforeach
 
-<a href="" class="btn btn-secondary">Create New Element</a>
+
+
+<a href="/create2" class="btn btn-secondary">Create New Element</a>
 
 @endsection

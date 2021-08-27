@@ -17,6 +17,11 @@ class BatimentController extends Controller
     }
 
     public function store(Request $request) {
+
+        request()->validate([
+            "nom"=>["required","min:1","max:40"],
+            "description"=>["required","min:1","max:100"]
+        ]);
         $newdata = new Batiment;
         $newdata->nom = $request->nom;
         $newdata->description = $request->description;
@@ -36,15 +41,20 @@ class BatimentController extends Controller
     }
 
     public function update(Batiment $id, Request $request ) {
+        
+        // request()->validate([
+        //     "name"=>["required","min:1","max:40"],
+        //     "description"=>["required","min:1","max:100"]
+        // ]);
         $data = $id;
         $data->nom = $request->nom;
         $data->description = $request->description;
         $data->save();
-        return redirect('/home');
+        return redirect('/Batiments');
     }
 
     public function destroy(Batiment $id) {
         $id->delete();
-        return redirect('/home');
+        return redirect('/Batiments');
     }
 }

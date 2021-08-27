@@ -10,10 +10,9 @@
         </ul>
     </div>
 @endif
-<form action="/NewBatiment" method="post">
+<form action="/NewTypeformations" method="post">
 @csrf
 Nom : <input type="text" name="nom" value="{{old('nom')}} ">
-description: <input type="text" name="description" value="{{old('description')}}"  >
 <button type="submit" class="btn btn-info">CREATE</button>
 </form>
 
